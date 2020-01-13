@@ -1,0 +1,18 @@
+//A6KWLOAD JOB (X5013,903),'OT98636',MSGCLASS=R,NOTIFY=&SYSUID          
+//*MAIN CLASS=DEVWORKD                                                  
+//OUT1   OUTPUT JESDS=ALL,FORMS=R99D,CLASS=R                            
+//OUT2   OUTPUT DEFAULT=YES,FORMS=R99D,CLASS=R                          
+//******** JOB CARD ADDED BY JC **************                          
+//STEP010  EXEC PGM=FTP,REGION=0M,PARM='(EXIT'                          
+//********************************************************************* 
+//**  TRANSFER THE PROJECTED COMMISSION FILE FROM A SERVER           ** 
+//********************************************************************* 
+//DD1       DD DSN=T903.PX5013.PRV4.NCOA03.ENCRYPT.YEAR2019,DISP=SHR    
+//INPUT    DD DSN=C557.CPSSX0.DMSOFTP.LOGIN,DISP=SHR                    
+//         DD  *                                                        
+   CD SACHIN                                                            
+   PUT //DD:DD1  NCOA-ENCR1.txt                                         
+   QUIT                                                                 
+/*                                                                      
+//SYSPRINT DD SYSOUT=(,)                                                
+//OUTPUT   DD SYSOUT=(,)                
